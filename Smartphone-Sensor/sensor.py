@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 
 def preprocess():
 
-    data_source = 'F:/Gautam/Tech Stuff/Python Projects/Datasets/sensor.csv'
+    data_source = 'sensor.csv'
 
     data = pd.read_csv(data_source)
     data = data.drop('rn', axis = 1)
