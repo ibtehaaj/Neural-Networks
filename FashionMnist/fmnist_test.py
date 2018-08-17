@@ -4,8 +4,8 @@ import random
 import matplotlib.pyplot as plt
 from keras.models import load_model
 
-train_dir = 'F:/Gautam/Tech Stuff/Python Projects/Datasets/fashionmnist/fashion-mnist_train.csv'
-test_dir = 'F:/Gautam/Tech Stuff/Python Projects/Datasets/fashionmnist/fashion-mnist_test.csv' 
+train_dir = 'fashion-mnist_train.csv'
+test_dir = 'fashion-mnist_test.csv' 
 
 
 def preprocess(test=False):
