@@ -4,8 +4,8 @@ from keras.callbacks import ModelCheckpoint, EarlyStopping
 from keras.models import Sequential
 from keras.layers import Dense
 
-train_dir = 'F:/Gautam/Tech Stuff/Python Projects/Datasets/fashionmnist/fashion-mnist_train.csv'
-test_dir = 'F:/Gautam/Tech Stuff/Python Projects/Datasets/fashionmnist/fashion-mnist_test.csv' 
+train_dir = 'fashion-mnist_train.csv'
+test_dir = 'fashion-mnist_test.csv' 
 
 
 def preprocess(test=False):
@@ -40,7 +40,7 @@ model.add(Dense(10, activation='softmax'))
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 
-cb_mcp = ModelCheckpoint('fmnist_128.model', monitor='val_loss',
+cb_mcp = ModelCheckpoint('fmnist_91.model', monitor='val_loss',
                          save_best_only=True, save_weights_only=False,
                          mode='auto', period=1, verbose=1)
 
