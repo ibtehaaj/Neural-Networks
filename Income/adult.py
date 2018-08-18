@@ -9,7 +9,7 @@ from keras.callbacks import ModelCheckpoint, EarlyStopping
 
 def preprocess():
 
-    dir_ = 'F:/Gautam/Tech Stuff/Python Projects/Datasets/adult.csv'
+    dir_ = 'adult.csv'
 
     df = pd.read_csv(dir_, header=None)
     df = df.replace(' ?', np.nan)
