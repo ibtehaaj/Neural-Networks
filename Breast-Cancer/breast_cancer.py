@@ -5,7 +5,7 @@ from keras.layers import Dense, Dropout
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 import matplotlib.pyplot as plt
 
-dir_ = 'F:/Gautam/Tech Stuff/Python Projects/Datasets/breast_cancer.csv'
+dir_ = 'breast_cancer.csv'
 
 
 def normalize(df):
