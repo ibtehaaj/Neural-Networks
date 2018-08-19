@@ -3,7 +3,7 @@ import numpy as np
 from keras.models import load_model
 import cv2
 
-model = load_model('Dog_cat_92.model')
+model = load_model('Dog_cat.model')
 print('Model Loaded Sucessfully.')
 
 while True:
