@@ -6,7 +6,7 @@ from keras.callbacks import EarlyStopping, ModelCheckpoint
 import matplotlib.pyplot as plt
 import time
 
-dir_ = "F:/Gautam/Tech Stuff/Python Projects/Datasets/chess.csv"
+dir_ = "chess.csv"
 
 def preprocess():
     df = pd.read_csv(dir_, header=None)
