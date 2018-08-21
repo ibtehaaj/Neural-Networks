@@ -18,11 +18,8 @@ y = np.array(y)
 train_x, test_x, train_y, test_y = train_test_split(x, y, test_size=0.1,
                                                     random_state=42)
 
-model = load_model('Dog_cat.model')
+model = load_model('dog_cat.model')
 print('Model Loaded Sucessfully.')
-
-##acc = model.evaluate(test_x, test_y, verbose=0)
-##print("Accuracy: %0.2f%%" % (acc[1] * 100))
 
 img = test_x.reshape(test_x.shape[0], 50, 50)
 
