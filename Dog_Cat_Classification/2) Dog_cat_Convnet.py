@@ -3,14 +3,16 @@
 import numpy as np
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential, load_model
+from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard
+from keras.callbacks import ReduceLROnPlateau
 from keras.layers import Conv2D, Dropout, Dense, Flatten, MaxPooling2D
 import matplotlib.pyplot as plt
 import time
 
-print('loading data...')
+print('Loading data...')
 data = np.load('data.npy')
-print('data loaded.\n')
+print('Data loaded.\n')
 
 x = np.array([i[0] for i in data])
 x = x.reshape(x.shape[0], 50, 50, 1)
@@ -20,6 +22,13 @@ y = np.array(y)
 
 train_x, test_x, train_y, test_y = train_test_split(x, y, test_size=0.2,
                                                     random_state=42)
+
+datagen = ImageDataGenerator(rotation_range=40, width_shift_range=0.2,
+                             height_shift_range=0.2,
+                             shear_range=0.2, zoom_range=0.2,
+                             horizontal_flip=True, validation_split=0.1)
+
+datagen.fit(train_x)
 
 model = Sequential()
 
@@ -52,16 +61,21 @@ mc = ModelCheckpoint('dog_cat-{epoch:02d}-{val_loss:.2f}.model',
                      save_weights_only=False,
                      monitor='val_loss', mode='auto')
 
-es = EarlyStopping(monitor='val_loss', patience=5, verbose=1, mode='auto')
+es = EarlyStopping(monitor='val_loss', patience=10, verbose=1, mode='auto')
 
 tb = TensorBoard(log_dir='logs/{}'.format(time.time()))
+
+lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5,
+                       min_lr=0.00001, verbose=1)
 
 print(model.summary())
 
 start = time.time()
 
-history = model.fit(train_x, train_y, verbose=2, epochs=5000,
-                    validation_split=0.1, callbacks=[mc, es, tb])
+history = model.fit_generator(datagen.flow(train_x, train_y, batch_size=32),
+                              steps_per_epoch=train_x.shape[0]/32, epochs=1000,
+                              verbose=2, callbacks=[mc, es, tb, lr],
+                              validation_data=(test_x, test_y))
 
 end = time.time()
 
@@ -76,7 +90,3 @@ plt.plot(history.history['loss'], color='b', label='Loss')
 plt.plot(history.history['val_loss'], color='r', label='Val_Loss')
 plt.legend()
 plt.show()
-
-pred = model.evaluate(test_x, test_y, verbose=2)
-print('Accuracy: %0.2f%%' % (pred[1] * 100))
-print('Loss: ', pred[0])
