@@ -38,5 +38,5 @@ while True:
         prediction = 'Dog'
 
     plt.imshow(img[num], cmap=plt.cm.gray_r, interpolation='nearest')
-    plt.title('Predicted to be an {}.\n Actual: {}'.format(prediction, label))
+    plt.title('Predicted to be a {}.\n Actual: {}'.format(prediction, label))
     plt.show()
