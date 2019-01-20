@@ -6,8 +6,8 @@ from keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
-por_dir = "F:\\Gautam\\Tech Stuff\\Python Projects\\Datasets\\student\\student-por.csv"
-math_dir = "F:\\Gautam\\Tech Stuff\\Python Projects\\Datasets\\student\\student-mat.csv"
+por_dir = "F:\\...\\Datasets\\student\\student-por.csv"
+math_dir = "F:\\...\\Datasets\\student\\student-mat.csv"
 
 df1 = pd.read_csv(por_dir, sep=';')
 df2 = pd.read_csv(math_dir, sep=';')
