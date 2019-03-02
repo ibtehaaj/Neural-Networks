@@ -9,7 +9,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 
-path = "F:\\Gautam\\Tech Stuff\\Python Projects\\Datasets\\heart.csv"
+path = "F:\\...\\Datasets\\heart.csv"
 df = pd.read_csv(path)
 
 features = ['cp', 'thalach', 'exang', 'oldpeak', 'slope',
