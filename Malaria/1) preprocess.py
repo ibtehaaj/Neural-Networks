@@ -3,8 +3,8 @@ import numpy as np
 import os
 from random import shuffle
 
-para_dir = 'F:\\Gautam\\Tech Stuff\\Python Projects\\Datasets\\cell_images_malaria\\Parasitized'
-unif_dir = 'F:\\Gautam\\Tech Stuff\\Python Projects\\Datasets\\cell_images_malaria\\Uninfected'
+para_dir = 'F:\\...\\Datasets\\cell_images_malaria\\Parasitized'
+unif_dir = 'F:\\...\\Datasets\\cell_images_malaria\\Uninfected'
 
 training_data = []
 
