@@ -1,0 +1,3 @@
+Mynet model took 27256.067753314972 seconds.
+Alexnet model took 116532.98174285889 seconds.
+Myinception model took 370707.9232800007 seconds.
