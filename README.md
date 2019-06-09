@@ -9,6 +9,8 @@ Modules required:
   pip install numpy
   pip install pandas
   pip install matplotlib
-  pip install opencv2
+  pip install opencv2-python
   pip install sklearn
+  pip install seaborn
+  pip install pillow
 ```
