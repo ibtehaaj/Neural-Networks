@@ -6,19 +6,13 @@ from keras.preprocessing.sequence import pad_sequences
 from keras.models import Sequential
 from keras.layers import Dense, Embedding, LSTM
 
-data = []
-for line in open('Sarcasm_Headlines_Dataset.json', 'r'):
-    dictionary = json.loads(line)
-    data.append([dictionary['headline'], dictionary['is_sarcastic']])
-
-data = np.array(data)
-
 X = []
 y = []
 
-for headline, label in data:
-    X.append(headline)
-    y.append(label)
+for line in open('Sarcasm_Headlines_Dataset.json', 'r'):
+    dictionary = json.loads(line)
+    X.append(dictionary['headline'])
+    y.append(dictionary['is_sarcastic'])
 
 X = np.array(X)
 y = np.array(y)
